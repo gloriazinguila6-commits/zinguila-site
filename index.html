@@ -92,6 +92,11 @@
     stroke:var(--or-clair);stroke-opacity:0.85;
   }
   .blueprint .fine{stroke-opacity:0.28;}
+  .hero-photo{
+    width:100%;height:100%;object-fit:cover;
+    aspect-ratio:4/3;border:1px solid rgba(232,193,88,0.4);
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+  }
 
   /* Section shell */
   section{padding:84px 0;}
@@ -131,7 +136,28 @@
     display:flex;align-items:center;justify-content:center;text-align:center;
     color:var(--gris);font-size:0.85rem;padding:16px;overflow:hidden;
   }
-  .gallery-item img{width:100%;height:100%;object-fit:cover;}
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;
+    cursor:pointer;transition:opacity .2s, transform .2s;
+  }
+  .gallery-item img:hover{opacity:0.88;transform:scale(1.02);}
+
+  /* Lightbox — agrandissement photo au clic */
+  .lightbox{
+    display:none;position:fixed;inset:0;background:rgba(21,20,15,0.94);
+    z-index:200;align-items:center;justify-content:center;padding:28px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{
+    max-width:100%;max-height:88vh;object-fit:contain;
+    border:1px solid rgba(247,245,240,0.15);
+  }
+  .lightbox-close{
+    position:absolute;top:18px;right:22px;
+    color:var(--blanc-pur);font-size:2.2rem;line-height:1;
+    background:none;border:none;cursor:pointer;
+    width:44px;height:44px;
+  }
 
   /* Contact */
   .contact{background:var(--noir);color:var(--blanc-pur);}
@@ -213,24 +239,7 @@
         </div>
       </div>
       <div class="blueprint-wrap">
-        <svg class="blueprint" viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2">
-          <line class="fine" x1="20" y1="280" x2="340" y2="280"/>
-          <line x1="40" y1="280" x2="40" y2="120"/>
-          <line x1="320" y1="280" x2="320" y2="120"/>
-          <line x1="40" y1="120" x2="180" y2="40"/>
-          <line x1="180" y1="40" x2="320" y2="120"/>
-          <line x1="40" y1="120" x2="320" y2="120"/>
-          <line class="fine" x1="90" y1="120" x2="120" y2="88"/>
-          <line class="fine" x1="140" y1="120" x2="160" y2="96"/>
-          <line class="fine" x1="200" y1="96" x2="220" y2="120"/>
-          <line class="fine" x1="240" y1="88" x2="270" y2="120"/>
-          <line x1="40" y1="280" x2="180" y2="200"/>
-          <line x1="320" y1="280" x2="180" y2="200"/>
-          <line x1="180" y1="200" x2="180" y2="120"/>
-          <circle class="fine" cx="180" cy="40" r="3"/>
-          <line class="fine" x1="20" y1="280" x2="20" y2="268"/>
-          <line class="fine" x1="340" y1="280" x2="340" y2="268"/>
-        </svg>
+        <img src="p9_soudure_atelier.jpg" alt="Atelier de soudure — ZINGUILA MULTI SERVICES" class="hero-photo">
       </div>
     </div>
   </section>
@@ -329,10 +338,10 @@
         <div class="gallery-item"><img src="p3_chantier.jpg" alt="Suivi de chantier — ZINGUILA MULTI SERVICES"></div>
         <div class="gallery-item"><img src="p5_mecanique.jpg" alt="Mécanique générale — ZINGUILA MULTI SERVICES"></div>
         <div class="gallery-item"><img src="p6_ingenierie1.jpg" alt="Suivi d'ingénierie sur chantier — ZINGUILA MULTI SERVICES"></div>
-<div class="gallery-item"><img src="p7_ingenierie2.jpg" alt="Ingénieur sur site — ZINGUILA MULTI SERVICES"></div>
-<div class="gallery-item"><img src="p8_fondation1.jpg" alt="Travaux de fondation — ZINGUILA MULTI SERVICES"></div>
-<div class="gallery-item"><img src="p9_soudure_atelier.jpg" alt="Atelier de soudure — ZINGUILA MULTI SERVICES"></div>
-<div class="gallery-item"><img src="p10_fondation2.jpg" alt="Coulage de fondation — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item"><img src="p7_ingenierie2.jpg" alt="Ingénieur sur site — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item"><img src="p8_fondation1.jpg" alt="Travaux de fondation — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item"><img src="p9_soudure_atelier.jpg" alt="Atelier de soudure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item"><img src="p10_fondation2.jpg" alt="Coulage de fondation — ZINGUILA MULTI SERVICES"></div>
       </div>
     </div>
   </section>
@@ -357,6 +366,11 @@
     </div>
   </section>
 
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
 </main>
 
 <script>
@@ -365,6 +379,19 @@
       document.getElementById('nav').classList.remove('open');
     });
   });
+
+  document.querySelectorAll('.gallery-item img').forEach(function(img){
+    img.addEventListener('click', function(){
+      document.getElementById('lightbox-img').src = this.src;
+      document.getElementById('lightbox-img').alt = this.alt;
+      document.getElementById('lightbox').classList.add('open');
+    });
+  });
+
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
 </script>
 
 <footer>
