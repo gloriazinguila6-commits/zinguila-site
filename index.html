@@ -138,6 +138,15 @@
   .stat b{display:block;font-family:'Archivo',sans-serif;font-size:2.1rem;font-weight:900;color:var(--or-clair);}
   .stat span{font-size:0.95rem;color:#DCE7E0;}
 
+  /* Avis clients */
+  .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .avis-card{
+    background:var(--blanc-pur);border:1px solid var(--ligne);padding:28px 24px;
+  }
+  .avis-stars{color:var(--or);font-size:1.1rem;letter-spacing:2px;margin-bottom:14px;}
+  .avis-texte{font-size:0.98rem;color:var(--noir);line-height:1.6;margin-bottom:18px;}
+  .avis-nom{font-weight:700;font-size:0.9rem;color:var(--vert);}
+
   /* Réalisations / galerie */
   .filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
   .filter-btn{
@@ -228,6 +237,7 @@
     .services-grid{grid-template-columns:repeat(2,1fr);}
     .stats{grid-template-columns:1fr;gap:22px;}
     .gallery{grid-template-columns:repeat(2,1fr);}
+    .avis-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;gap:36px;}
   }
   @media (max-width:520px){
@@ -399,6 +409,32 @@
         <div class="gallery-item" data-cat="baie"><img src="r28_baie_vitree_finition.jpg" alt="Baie vitrée aluminium finition — ZINGUILA MULTI SERVICES"></div>
         <div class="gallery-item" data-cat="menuiserie"><img src="r29_armoire_coulissante.jpg" alt="Armoire coulissante sur mesure — ZINGUILA MULTI SERVICES"></div>
         <div class="gallery-item" data-cat="baie"><img src="r30_porte_aluminium.jpg" alt="Porte aluminium vitrée — ZINGUILA MULTI SERVICES"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis" class="avis">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">TÉMOIGNAGES</div>
+        <h2>Ce que disent nos clients</h2>
+      </div>
+      <div class="avis-grid">
+        <div class="avis-card">
+          <div class="avis-stars">★★★★★</div>
+          <p class="avis-texte">« Équipe sérieuse et ponctuelle. Notre fondation a été réalisée dans les délais annoncés. »</p>
+          <div class="avis-nom">Nom du client</div>
+        </div>
+        <div class="avis-card">
+          <div class="avis-stars">★★★★★</div>
+          <p class="avis-texte">« Très satisfait de la pose de nos baies vitrées, un travail propre et soigné. »</p>
+          <div class="avis-nom">Nom du client</div>
+        </div>
+        <div class="avis-card">
+          <div class="avis-stars">★★★★★</div>
+          <p class="avis-texte">« Un seul interlocuteur pour tout le chantier, ça change la vie. Je recommande. »</p>
+          <div class="avis-nom">Nom du client</div>
+        </div>
       </div>
     </div>
   </section>
