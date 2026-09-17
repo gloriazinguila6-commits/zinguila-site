@@ -151,6 +151,13 @@
   .service p{font-size:0.92rem;color:var(--gris);}
   .service.accent{background:var(--noir);color:var(--blanc-pur);}
   .service.accent p{color:#C7C4BA;}
+  .service-wa{
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-size:0.82rem;font-weight:700;color:#1F5D3A;
+  }
+  .service-wa:hover{text-decoration:underline;}
+  .service.accent .service-wa{color:var(--or-clair);}
+  .service-wa svg{width:15px;height:15px;fill:currentColor;flex-shrink:0;}
 
   /* Pourquoi nous */
   .pourquoi{background:var(--vert);color:var(--blanc-pur);}
@@ -395,46 +402,55 @@
         <span class="icon">📐</span>
         <h3 data-i18n="svc1_h3">Ingénierie &amp; Architecture</h3>
         <p data-i18n="svc1_p">Conception, plans, études et suivi de vos projets.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc1"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">⚙️</span>
         <h3 data-i18n="svc2_h3">Soudure &amp; Ferronnerie</h3>
         <p data-i18n="svc2_p">Portails, grilles, charpentes métalliques, structures.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc2"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">🪚</span>
         <h3 data-i18n="svc3_h3">Menuiserie</h3>
         <p data-i18n="svc3_p">Meubles, portes, fenêtres, placards sur mesure.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc3"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">🧱</span>
         <h3 data-i18n="svc4_h3">Maçonnerie</h3>
         <p data-i18n="svc4_p">Murs, dalles, fondations, extensions.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc4"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">🏗️</span>
         <h3 data-i18n="svc5_h3">Charpente</h3>
         <p data-i18n="svc5_p">Toitures, ossatures bois et métalliques.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc5"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">🎨</span>
         <h3 data-i18n="svc6_h3">Peinture &amp; Staff</h3>
         <p data-i18n="svc6_p">Peinture intérieure/extérieure, décoration, staff.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc6"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">⚡</span>
         <h3 data-i18n="svc7_h3">Électricité</h3>
         <p data-i18n="svc7_p">Installation, dépannage, mise aux normes.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc7"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service">
         <span class="icon">🚿</span>
         <h3 data-i18n="svc8_h3">Plomberie &amp; Carrelage</h3>
         <p data-i18n="svc8_p">Tuyauterie, sanitaires, pose de carrelage.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc8"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
       <div class="service accent">
         <span class="icon">🪟</span>
         <h3 data-i18n="svc9_h3">Baie vitrée &amp; Aluminium</h3>
         <p data-i18n="svc9_p">Fenêtres, portes, vérandas, façades vitrées.</p>
+        <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="service-wa" data-wa="svc9"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg><span data-i18n="wa_link_label">Demander un devis</span></a>
       </div>
     </div>
   </section>
@@ -582,7 +598,7 @@
         <p style="color:#C7C4BA;margin-bottom:26px;" data-i18n="contact_p">Appelez-nous ou écrivez-nous directement, nous répondons rapidement.</p>
         <div class="cta-row" style="margin-bottom:30px;">
           <a href="tel:+242066123691" class="btn btn-or" data-i18n="contact_call">Appeler le +242 06 612 36 91</a>
-          <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="contact_whatsapp">Écrire sur WhatsApp</a>
+          <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="btn btn-ghost" data-wa="generic" data-i18n="contact_whatsapp">Écrire sur WhatsApp</a>
         </div>
         <div class="contact-info">
           <div class="contact-line">
@@ -825,6 +841,18 @@
     footer_slogan:{fr:"ZINGUILA MULTI SERVICES — « Votre projet, notre expertise »",en:"ZINGUILA MULTI SERVICES — “Your project, our expertise”"},
     footer_copy:{fr:"© 2026 — Brazzaville, Congo",en:"© 2026 — Brazzaville, Congo"},
 
+    wa_link_label:{fr:"Demander un devis",en:"Request a quote"},
+    wa_svc1:{fr:"Bonjour, je suis intéressé(e) par vos services d'ingénierie et architecture.",en:"Hello, I'm interested in your engineering and architecture services."},
+    wa_svc2:{fr:"Bonjour, je suis intéressé(e) par vos services de soudure et ferronnerie.",en:"Hello, I'm interested in your welding and metalwork services."},
+    wa_svc3:{fr:"Bonjour, je suis intéressé(e) par vos services de menuiserie.",en:"Hello, I'm interested in your carpentry services."},
+    wa_svc4:{fr:"Bonjour, je suis intéressé(e) par vos services de maçonnerie.",en:"Hello, I'm interested in your masonry services."},
+    wa_svc5:{fr:"Bonjour, je suis intéressé(e) par vos services de charpente.",en:"Hello, I'm interested in your roof framing services."},
+    wa_svc6:{fr:"Bonjour, je suis intéressé(e) par vos services de peinture et staff.",en:"Hello, I'm interested in your painting and plasterwork services."},
+    wa_svc7:{fr:"Bonjour, je suis intéressé(e) par vos services d'électricité.",en:"Hello, I'm interested in your electrical services."},
+    wa_svc8:{fr:"Bonjour, je suis intéressé(e) par vos services de plomberie et carrelage.",en:"Hello, I'm interested in your plumbing and tiling services."},
+    wa_svc9:{fr:"Bonjour, je suis intéressé(e) par vos services de baie vitrée et aluminium.",en:"Hello, I'm interested in your glazing and aluminium services."},
+    wa_generic:{fr:"Bonjour, je souhaite avoir des informations sur vos services.",en:"Hello, I'd like some information about your services."},
+
     page_title:{fr:"ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier au Congo",en:"ZINGUILA MULTI SERVICES — General Contractor in Congo"},
     meta_desc:{fr:"ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.",en:"ZINGUILA MULTI SERVICES — General contractor based in Brazzaville, working across the Republic of Congo and beyond. Engineering, welding, carpentry, masonry, framing, painting, electrical, plumbing, aluminium."},
     og_title:{fr:"ZINGUILA MULTI SERVICES — Votre projet, notre expertise",en:"ZINGUILA MULTI SERVICES — Your project, our expertise"}
@@ -857,6 +885,10 @@
       var key = el.getAttribute('data-i18n-aria');
       if(i18n[key]) el.setAttribute('aria-label', i18n[key][lang]);
     });
+    document.querySelectorAll('[data-wa]').forEach(function(el){
+      var key = 'wa_' + el.getAttribute('data-wa');
+      if(i18n[key]) el.href = 'https://wa.me/242066123691?text=' + encodeURIComponent(i18n[key][lang]);
+    });
 
     document.getElementById('doc-title').textContent = i18n.page_title[lang];
     document.getElementById('meta-desc').setAttribute('content', i18n.meta_desc[lang]);
@@ -877,7 +909,7 @@
   }
 </script>
 
-<a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria="contact_whatsapp" aria-label="Écrire sur WhatsApp">
+<a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="whatsapp-float" data-wa="generic" data-i18n-aria="contact_whatsapp" aria-label="Écrire sur WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
 </a>
 
