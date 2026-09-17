@@ -6,6 +6,15 @@
 <title>ZINGUILA MULTI SERVICES — Votre projet, notre expertise</title>
 <link rel="icon" type="image/png" href="logo.png">
 <meta name="description" content="ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier à Brazzaville. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
+<meta property="og:description" content="Bâtiment tous corps de métier à Brazzaville. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
+<meta property="og:image" content="hero_prets3.jpg">
+<meta property="og:url" content="https://zinguilamultiservices.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
+<meta name="twitter:description" content="Bâtiment tous corps de métier à Brazzaville. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
+<meta name="twitter:image" content="hero_prets3.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -189,6 +198,17 @@
     display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
     font-size:0.85rem;color:var(--gris);
   }
+
+  /* Bouton WhatsApp flottant */
+  .whatsapp-float{
+    position:fixed;bottom:22px;right:22px;z-index:150;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.3);
+    transition:transform .2s;
+  }
+  .whatsapp-float:hover{transform:scale(1.08);}
+  .whatsapp-float svg{width:32px;height:32px;fill:#FFFFFF;}
 
   @media (max-width:860px){
     .hero-inner{grid-template-columns:1fr;padding-top:64px;}
@@ -417,6 +437,10 @@
     document.getElementById('lightbox').classList.remove('open');
   }
 </script>
+
+<a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
+</a>
 
 <footer>
   <div class="wrap footer-inner">
