@@ -139,6 +139,14 @@
   .stat span{font-size:0.95rem;color:#DCE7E0;}
 
   /* Réalisations / galerie */
+  .filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
+  .filter-btn{
+    padding:9px 18px;font-size:0.85rem;font-weight:600;
+    border:1px solid var(--ligne);background:var(--blanc-pur);color:var(--noir);
+    cursor:pointer;font-family:inherit;transition:background .15s,color .15s,border-color .15s;
+  }
+  .filter-btn:hover{border-color:var(--vert);color:var(--vert);}
+  .filter-btn.active{background:var(--vert);border-color:var(--vert);color:var(--blanc-pur);}
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .gallery-item{
     aspect-ratio:4/3;background:#E7E3D8;border:1px solid var(--ligne);
@@ -351,37 +359,46 @@
         <h2>Nos chantiers</h2>
         <p>Un aperçu de nos interventions sur le terrain, tous corps de métier confondus.</p>
       </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="ingenierie">Ingénierie</button>
+        <button class="filter-btn" data-filter="soudure">Soudure &amp; Ferronnerie</button>
+        <button class="filter-btn" data-filter="menuiserie">Menuiserie</button>
+        <button class="filter-btn" data-filter="maconnerie">Maçonnerie</button>
+        <button class="filter-btn" data-filter="baie">Baie vitrée &amp; Alu</button>
+        <button class="filter-btn" data-filter="carrelage">Carrelage</button>
+      </div>
       <div class="gallery">
-        <div class="gallery-item"><img src="r1_baie_vitree.jpg" alt="Installation de porte aluminium — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r2_soudure_atelier.jpg" alt="Atelier de soudure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r3_chantier_hauteur.jpg" alt="Suivi de chantier en hauteur — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r4_finition_interieure.jpg" alt="Finition intérieure et rambarde vitrée — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r5_equipe_site.jpg" alt="Équipe sur site — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r6_ingenierie.jpg" alt="Suivi d'ingénierie sur chantier — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r7_grille_securite.jpg" alt="Pose de grille de sécurité — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r8_fondation.jpg" alt="Travaux de fondation — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r9_mecanique_ferronnerie.jpg" alt="Mécanique et ferronnerie — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r10_mecanique_atelier.jpg" alt="Atelier de mécanique générale — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r11_coulage_fondation.jpg" alt="Coulage de fondation — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r12_guerite_construction.jpg" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r13_guerite_finition.jpg" alt="Structure de guérite en finition — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r14_guerite_terminee.jpg" alt="Guérite peinte terminée — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r15_facade_carrelage.jpg" alt="Revêtement de façade — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r16_baie_vitree_alu.jpg" alt="Pose de baies vitrées et portes aluminium — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r17_guerite_ronde.jpg" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r18_grille_decorative.jpg" alt="Pose de grilles décoratives — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r19_fenetre_grille.jpg" alt="Installation de fenêtre et grille de protection — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r20_menuiserie_armoire.jpg" alt="Fabrication d'armoire sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r21_menuiserie_armoire_int.jpg" alt="Menuiserie intérieure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r22_cuisine_amenagee.jpg" alt="Cuisine aménagée — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r23_menuiserie_meuble.jpg" alt="Fabrication de meubles — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r24_cuisine_meuble.jpg" alt="Meuble de cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r25_cuisine_sur_mesure.jpg" alt="Cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r26_menuiserie_fenetres.jpg" alt="Menuiserie meubles et fenêtres — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r27_garde_corps_vitre.jpg" alt="Garde-corps vitré — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r28_baie_vitree_finition.jpg" alt="Baie vitrée aluminium finition — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r29_armoire_coulissante.jpg" alt="Armoire coulissante sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item"><img src="r30_porte_aluminium.jpg" alt="Porte aluminium vitrée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r1_baie_vitree.jpg" alt="Installation de porte aluminium — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img src="r2_soudure_atelier.jpg" alt="Atelier de soudure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="ingenierie"><img src="r3_chantier_hauteur.jpg" alt="Suivi de chantier en hauteur — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r4_finition_interieure.jpg" alt="Finition intérieure et rambarde vitrée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="ingenierie"><img src="r5_equipe_site.jpg" alt="Équipe sur site — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="ingenierie"><img src="r6_ingenierie.jpg" alt="Suivi d'ingénierie sur chantier — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r7_grille_securite.jpg" alt="Pose de grille de sécurité — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img src="r8_fondation.jpg" alt="Travaux de fondation — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img src="r9_mecanique_ferronnerie.jpg" alt="Mécanique et ferronnerie — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img src="r10_mecanique_atelier.jpg" alt="Atelier de mécanique générale — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img src="r11_coulage_fondation.jpg" alt="Coulage de fondation — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img src="r12_guerite_construction.jpg" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img src="r13_guerite_finition.jpg" alt="Structure de guérite en finition — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img src="r14_guerite_terminee.jpg" alt="Guérite peinte terminée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="carrelage"><img src="r15_facade_carrelage.jpg" alt="Revêtement de façade — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r16_baie_vitree_alu.jpg" alt="Pose de baies vitrées et portes aluminium — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img src="r17_guerite_ronde.jpg" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img src="r18_grille_decorative.jpg" alt="Pose de grilles décoratives — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r19_fenetre_grille.jpg" alt="Installation de fenêtre et grille de protection — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r20_menuiserie_armoire.jpg" alt="Fabrication d'armoire sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r21_menuiserie_armoire_int.jpg" alt="Menuiserie intérieure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r22_cuisine_amenagee.jpg" alt="Cuisine aménagée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r23_menuiserie_meuble.jpg" alt="Fabrication de meubles — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r24_cuisine_meuble.jpg" alt="Meuble de cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r25_cuisine_sur_mesure.jpg" alt="Cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r26_menuiserie_fenetres.jpg" alt="Menuiserie meubles et fenêtres — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r27_garde_corps_vitre.jpg" alt="Garde-corps vitré — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r28_baie_vitree_finition.jpg" alt="Baie vitrée aluminium finition — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img src="r29_armoire_coulissante.jpg" alt="Armoire coulissante sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img src="r30_porte_aluminium.jpg" alt="Porte aluminium vitrée — ZINGUILA MULTI SERVICES"></div>
       </div>
     </div>
   </section>
@@ -429,6 +446,21 @@
       document.getElementById('lightbox-img').src = this.src;
       document.getElementById('lightbox-img').alt = this.alt;
       document.getElementById('lightbox').classList.add('open');
+    });
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      document.querySelectorAll('.gallery-item').forEach(function(item){
+        if(filter === 'all' || item.getAttribute('data-cat') === filter){
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
   });
 
