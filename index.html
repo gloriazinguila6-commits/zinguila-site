@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier au Congo</title>
+<title id="doc-title">ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier au Congo</title>
 <meta name="keywords" content="bâtiment Congo, entreprise construction Brazzaville, ingénierie architecture Congo, soudure ferronnerie Brazzaville, menuiserie Congo, maçonnerie Brazzaville, plomberie carrelage Congo, baie vitrée aluminium Brazzaville, électricité bâtiment Congo, Zinguila Multi Services">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#15140F">
-<meta name="description" content="ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
+<meta name="description" id="meta-desc" content="ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
-<meta property="og:description" content="Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
+<meta property="og:title" id="og-title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
+<meta property="og:description" id="og-desc" content="Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
 <meta property="og:image" content="hero_prets3.jpg">
 <meta property="og:url" content="https://zinguilamultiservices.com">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
-<meta name="twitter:description" content="Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
+<meta name="twitter:title" id="tw-title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
+<meta name="twitter:description" id="tw-desc" content="Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
 <meta name="twitter:image" content="hero_prets3.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +66,19 @@
   nav a{font-weight:500;font-size:0.95rem;}
   nav a:hover{color:var(--vert);}
   .nav-toggle{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--noir);}
+  .lang-toggle{
+    display:flex;align-items:center;gap:6px;margin-left:28px;
+    border:1px solid var(--ligne);border-radius:20px;padding:4px;flex-shrink:0;
+  }
+  .lang-btn{
+    background:none;border:0;cursor:pointer;font-family:inherit;
+    font-size:0.78rem;font-weight:700;letter-spacing:0.03em;
+    padding:5px 12px;border-radius:16px;color:var(--gris);
+  }
+  .lang-btn.active{background:var(--vert);color:var(--blanc-pur);}
+  @media (max-width:860px){
+    .lang-toggle{margin-left:auto;margin-right:10px;}
+  }
 
   /* Hero */
   .hero{
@@ -333,13 +346,17 @@
 <header>
   <div class="header-inner">
     <a href="#top" class="logotype"><img src="logo.png" alt="ZINGUILA MULTI SERVICES" class="logo-img"></a>
+    <div class="lang-toggle" id="langToggle">
+      <button class="lang-btn active" id="langBtnFr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="langBtnEn" onclick="setLang('en')">EN</button>
+    </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <nav id="nav">
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pourquoi">Pourquoi nous</a></li>
-        <li><a href="#realisations">Réalisations</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#pourquoi" data-i18n="nav_why">Pourquoi nous</a></li>
+        <li><a href="#realisations" data-i18n="nav_work">Réalisations</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -350,17 +367,17 @@
   <section class="hero">
     <div class="hero-inner">
       <div>
-        <div class="hero-eyebrow">BÂTIMENT TOUS CORPS DE MÉTIER · RÉPUBLIQUE DU CONGO ET AU-DELÀ</div>
-        <h1>Votre projet,<br>notre expertise.</h1>
-        <p>De la fondation à la finition, une seule entreprise pour piloter tous les corps de métier de votre construction ou rénovation.</p>
+        <div class="hero-eyebrow" data-i18n="hero_eyebrow">BÂTIMENT TOUS CORPS DE MÉTIER · RÉPUBLIQUE DU CONGO ET AU-DELÀ</div>
+        <h1 data-i18n-html="hero_h1">Votre projet,<br>notre expertise.</h1>
+        <p data-i18n="hero_p">De la fondation à la finition, une seule entreprise pour piloter tous les corps de métier de votre construction ou rénovation.</p>
         <div class="cta-row">
-          <a href="#contact" class="btn btn-or">Demander un devis</a>
-          <a href="#services" class="btn btn-ghost">Voir nos services</a>
+          <a href="#contact" class="btn btn-or" data-i18n="hero_cta_devis">Demander un devis</a>
+          <a href="#services" class="btn btn-ghost" data-i18n="hero_cta_services">Voir nos services</a>
         </div>
-        <a href="brochure_zinguila.pdf" download class="brochure-link">📄 Télécharger notre brochure (PDF)</a>
+        <a href="brochure_zinguila.pdf" download class="brochure-link" data-i18n="hero_brochure">📄 Télécharger notre brochure (PDF)</a>
       </div>
       <div class="blueprint-wrap">
-        <img src="hero_prets3.jpg" alt="Toujours prêt pour votre projet — ZINGUILA MULTI SERVICES" class="hero-photo">
+        <img src="hero_prets3.jpg" data-i18n-alt="hero_photo_alt" alt="Toujours prêt pour votre projet — ZINGUILA MULTI SERVICES" class="hero-photo">
       </div>
     </div>
   </section>
@@ -368,56 +385,56 @@
   <section id="services">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-tag">NOS SERVICES</div>
-        <h2>Un seul interlocuteur, tous les corps de métier</h2>
-        <p>Que votre besoin soit ponctuel ou couvre l'ensemble d'un chantier, ZINGUILA MULTI SERVICES coordonne les métiers du bâtiment sous un même toit.</p>
+        <div class="section-tag" data-i18n="services_tag">NOS SERVICES</div>
+        <h2 data-i18n="services_h2">Un seul interlocuteur, tous les corps de métier</h2>
+        <p data-i18n="services_p">Que votre besoin soit ponctuel ou couvre l'ensemble d'un chantier, ZINGUILA MULTI SERVICES coordonne les métiers du bâtiment sous un même toit.</p>
       </div>
     </div>
     <div class="services-grid">
       <div class="service">
         <span class="icon">📐</span>
-        <h3>Ingénierie &amp; Architecture</h3>
-        <p>Conception, plans, études et suivi de vos projets.</p>
+        <h3 data-i18n="svc1_h3">Ingénierie &amp; Architecture</h3>
+        <p data-i18n="svc1_p">Conception, plans, études et suivi de vos projets.</p>
       </div>
       <div class="service">
         <span class="icon">⚙️</span>
-        <h3>Soudure &amp; Ferronnerie</h3>
-        <p>Portails, grilles, charpentes métalliques, structures.</p>
+        <h3 data-i18n="svc2_h3">Soudure &amp; Ferronnerie</h3>
+        <p data-i18n="svc2_p">Portails, grilles, charpentes métalliques, structures.</p>
       </div>
       <div class="service">
         <span class="icon">🪚</span>
-        <h3>Menuiserie</h3>
-        <p>Meubles, portes, fenêtres, placards sur mesure.</p>
+        <h3 data-i18n="svc3_h3">Menuiserie</h3>
+        <p data-i18n="svc3_p">Meubles, portes, fenêtres, placards sur mesure.</p>
       </div>
       <div class="service">
         <span class="icon">🧱</span>
-        <h3>Maçonnerie</h3>
-        <p>Murs, dalles, fondations, extensions.</p>
+        <h3 data-i18n="svc4_h3">Maçonnerie</h3>
+        <p data-i18n="svc4_p">Murs, dalles, fondations, extensions.</p>
       </div>
       <div class="service">
         <span class="icon">🏗️</span>
-        <h3>Charpente</h3>
-        <p>Toitures, ossatures bois et métalliques.</p>
+        <h3 data-i18n="svc5_h3">Charpente</h3>
+        <p data-i18n="svc5_p">Toitures, ossatures bois et métalliques.</p>
       </div>
       <div class="service">
         <span class="icon">🎨</span>
-        <h3>Peinture &amp; Staff</h3>
-        <p>Peinture intérieure/extérieure, décoration, staff.</p>
+        <h3 data-i18n="svc6_h3">Peinture &amp; Staff</h3>
+        <p data-i18n="svc6_p">Peinture intérieure/extérieure, décoration, staff.</p>
       </div>
       <div class="service">
         <span class="icon">⚡</span>
-        <h3>Électricité</h3>
-        <p>Installation, dépannage, mise aux normes.</p>
+        <h3 data-i18n="svc7_h3">Électricité</h3>
+        <p data-i18n="svc7_p">Installation, dépannage, mise aux normes.</p>
       </div>
       <div class="service">
         <span class="icon">🚿</span>
-        <h3>Plomberie &amp; Carrelage</h3>
-        <p>Tuyauterie, sanitaires, pose de carrelage.</p>
+        <h3 data-i18n="svc8_h3">Plomberie &amp; Carrelage</h3>
+        <p data-i18n="svc8_p">Tuyauterie, sanitaires, pose de carrelage.</p>
       </div>
       <div class="service accent">
         <span class="icon">🪟</span>
-        <h3>Baie vitrée &amp; Aluminium</h3>
-        <p>Fenêtres, portes, vérandas, façades vitrées.</p>
+        <h3 data-i18n="svc9_h3">Baie vitrée &amp; Aluminium</h3>
+        <p data-i18n="svc9_p">Fenêtres, portes, vérandas, façades vitrées.</p>
       </div>
     </div>
   </section>
@@ -425,21 +442,21 @@
   <section id="pourquoi" class="pourquoi">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-tag">POURQUOI NOUS CHOISIR</div>
-        <h2>Dites-nous votre besoin, nous trouvons l'artisan</h2>
+        <div class="section-tag" data-i18n="why_tag">POURQUOI NOUS CHOISIR</div>
+        <h2 data-i18n="why_h2">Dites-nous votre besoin, nous trouvons l'artisan</h2>
       </div>
       <div class="stats">
         <div class="stat">
           <b>9+</b>
-          <span>corps de métier coordonnés sous une seule entreprise</span>
+          <span data-i18n="stat1">corps de métier coordonnés sous une seule entreprise</span>
         </div>
         <div class="stat">
           <b>1</b>
-          <span>interlocuteur unique du premier plan à la finition</span>
+          <span data-i18n="stat2">interlocuteur unique du premier plan à la finition</span>
         </div>
         <div class="stat">
           <b>100%</b>
-          <span>projets sur mesure, adaptés à votre budget et vos délais</span>
+          <span data-i18n="stat3">projets sur mesure, adaptés à votre budget et vos délais</span>
         </div>
       </div>
     </div>
@@ -448,65 +465,65 @@
   <section id="realisations">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-tag">RÉALISATIONS</div>
-        <h2>Nos chantiers</h2>
-        <p>Un aperçu de nos interventions sur le terrain, tous corps de métier confondus.</p>
+        <div class="section-tag" data-i18n="work_tag">RÉALISATIONS</div>
+        <h2 data-i18n="work_h2">Nos chantiers</h2>
+        <p data-i18n="work_p">Un aperçu de nos interventions sur le terrain, tous corps de métier confondus.</p>
       </div>
 
       <div class="ba-wrap">
-        <div class="ba-label">Guérite : de la structure à la finition</div>
+        <div class="ba-label" data-i18n="ba_label">Guérite : de la structure à la finition</div>
         <div class="ba-slider" id="baSlider">
-          <img src="r12_guerite_construction.jpg" alt="Guérite avant finition" class="ba-after">
+          <img src="r12_guerite_construction.jpg" data-i18n-alt="ba_after_alt" alt="Guérite avant finition" class="ba-after">
           <div class="ba-before-wrap" id="baBeforeWrap">
-            <img src="r14_guerite_terminee.jpg" alt="Guérite terminée" class="ba-before">
+            <img src="r14_guerite_terminee.jpg" data-i18n-alt="ba_before_alt" alt="Guérite terminée" class="ba-before">
           </div>
           <div class="ba-handle" id="baHandle">
             <span class="ba-arrows">↔</span>
           </div>
         </div>
-        <div class="ba-tags"><span>Avant</span><span>Après</span></div>
+        <div class="ba-tags"><span data-i18n="ba_avant">Avant</span><span data-i18n="ba_apres">Après</span></div>
       </div>
 
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="ingenierie">Ingénierie</button>
-        <button class="filter-btn" data-filter="soudure">Soudure &amp; Ferronnerie</button>
-        <button class="filter-btn" data-filter="menuiserie">Menuiserie</button>
-        <button class="filter-btn" data-filter="maconnerie">Maçonnerie</button>
-        <button class="filter-btn" data-filter="baie">Baie vitrée &amp; Alu</button>
-        <button class="filter-btn" data-filter="carrelage">Carrelage</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tout</button>
+        <button class="filter-btn" data-filter="ingenierie" data-i18n="filter_ing">Ingénierie</button>
+        <button class="filter-btn" data-filter="soudure" data-i18n="filter_sou">Soudure &amp; Ferronnerie</button>
+        <button class="filter-btn" data-filter="menuiserie" data-i18n="filter_men">Menuiserie</button>
+        <button class="filter-btn" data-filter="maconnerie" data-i18n="filter_mac">Maçonnerie</button>
+        <button class="filter-btn" data-filter="baie" data-i18n="filter_baie">Baie vitrée &amp; Alu</button>
+        <button class="filter-btn" data-filter="carrelage" data-i18n="filter_car">Carrelage</button>
       </div>
       <div class="gallery">
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r1_baie_vitree.jpg" alt="Installation de porte aluminium — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r2_soudure_atelier.jpg" alt="Atelier de soudure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="ingenierie"><img loading="lazy" src="r3_chantier_hauteur.jpg" alt="Suivi de chantier en hauteur — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r4_finition_interieure.jpg" alt="Finition intérieure et rambarde vitrée — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="ingenierie"><img loading="lazy" src="r5_equipe_site.jpg" alt="Équipe sur site — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="ingenierie"><img loading="lazy" src="r6_ingenierie.jpg" alt="Suivi d'ingénierie sur chantier — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r7_grille_securite.jpg" alt="Pose de grille de sécurité — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r8_fondation.jpg" alt="Travaux de fondation — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r9_mecanique_ferronnerie.jpg" alt="Mécanique et ferronnerie — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r10_mecanique_atelier.jpg" alt="Atelier de mécanique générale — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r11_coulage_fondation.jpg" alt="Coulage de fondation — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r12_guerite_construction.jpg" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r13_guerite_finition.jpg" alt="Structure de guérite en finition — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r14_guerite_terminee.jpg" alt="Guérite peinte terminée — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="carrelage"><img loading="lazy" src="r15_facade_carrelage.jpg" alt="Revêtement de façade — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r16_baie_vitree_alu.jpg" alt="Pose de baies vitrées et portes aluminium — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r17_guerite_ronde.jpg" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r18_grille_decorative.jpg" alt="Pose de grilles décoratives — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r19_fenetre_grille.jpg" alt="Installation de fenêtre et grille de protection — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r20_menuiserie_armoire.jpg" alt="Fabrication d'armoire sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r21_menuiserie_armoire_int.jpg" alt="Menuiserie intérieure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r22_cuisine_amenagee.jpg" alt="Cuisine aménagée — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r23_menuiserie_meuble.jpg" alt="Fabrication de meubles — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r24_cuisine_meuble.jpg" alt="Meuble de cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r25_cuisine_sur_mesure.jpg" alt="Cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r26_menuiserie_fenetres.jpg" alt="Menuiserie meubles et fenêtres — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r27_garde_corps_vitre.jpg" alt="Garde-corps vitré — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r28_baie_vitree_finition.jpg" alt="Baie vitrée aluminium finition — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r29_armoire_coulissante.jpg" alt="Armoire coulissante sur mesure — ZINGUILA MULTI SERVICES"></div>
-        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r30_porte_aluminium.jpg" alt="Porte aluminium vitrée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r1_baie_vitree.jpg" data-i18n-alt="g1_alt" alt="Installation de porte aluminium — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r2_soudure_atelier.jpg" data-i18n-alt="g2_alt" alt="Atelier de soudure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="ingenierie"><img loading="lazy" src="r3_chantier_hauteur.jpg" data-i18n-alt="g3_alt" alt="Suivi de chantier en hauteur — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r4_finition_interieure.jpg" data-i18n-alt="g4_alt" alt="Finition intérieure et rambarde vitrée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="ingenierie"><img loading="lazy" src="r5_equipe_site.jpg" data-i18n-alt="g5_alt" alt="Équipe sur site — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="ingenierie"><img loading="lazy" src="r6_ingenierie.jpg" data-i18n-alt="g6_alt" alt="Suivi d'ingénierie sur chantier — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r7_grille_securite.jpg" data-i18n-alt="g7_alt" alt="Pose de grille de sécurité — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r8_fondation.jpg" data-i18n-alt="g8_alt" alt="Travaux de fondation — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r9_mecanique_ferronnerie.jpg" data-i18n-alt="g9_alt" alt="Mécanique et ferronnerie — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r10_mecanique_atelier.jpg" data-i18n-alt="g10_alt" alt="Atelier de mécanique générale — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r11_coulage_fondation.jpg" data-i18n-alt="g11_alt" alt="Coulage de fondation — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r12_guerite_construction.jpg" data-i18n-alt="g12_alt" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r13_guerite_finition.jpg" data-i18n-alt="g13_alt" alt="Structure de guérite en finition — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r14_guerite_terminee.jpg" data-i18n-alt="g14_alt" alt="Guérite peinte terminée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="carrelage"><img loading="lazy" src="r15_facade_carrelage.jpg" data-i18n-alt="g15_alt" alt="Revêtement de façade — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r16_baie_vitree_alu.jpg" data-i18n-alt="g16_alt" alt="Pose de baies vitrées et portes aluminium — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="maconnerie"><img loading="lazy" src="r17_guerite_ronde.jpg" data-i18n-alt="g17_alt" alt="Construction de guérite — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="soudure"><img loading="lazy" src="r18_grille_decorative.jpg" data-i18n-alt="g18_alt" alt="Pose de grilles décoratives — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r19_fenetre_grille.jpg" data-i18n-alt="g19_alt" alt="Installation de fenêtre et grille de protection — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r20_menuiserie_armoire.jpg" data-i18n-alt="g20_alt" alt="Fabrication d'armoire sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r21_menuiserie_armoire_int.jpg" data-i18n-alt="g21_alt" alt="Menuiserie intérieure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r22_cuisine_amenagee.jpg" data-i18n-alt="g22_alt" alt="Cuisine aménagée — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r23_menuiserie_meuble.jpg" data-i18n-alt="g23_alt" alt="Fabrication de meubles — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r24_cuisine_meuble.jpg" data-i18n-alt="g24_alt" alt="Meuble de cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r25_cuisine_sur_mesure.jpg" data-i18n-alt="g25_alt" alt="Cuisine sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r26_menuiserie_fenetres.jpg" data-i18n-alt="g26_alt" alt="Menuiserie meubles et fenêtres — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r27_garde_corps_vitre.jpg" data-i18n-alt="g27_alt" alt="Garde-corps vitré — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r28_baie_vitree_finition.jpg" data-i18n-alt="g28_alt" alt="Baie vitrée aluminium finition — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="menuiserie"><img loading="lazy" src="r29_armoire_coulissante.jpg" data-i18n-alt="g29_alt" alt="Armoire coulissante sur mesure — ZINGUILA MULTI SERVICES"></div>
+        <div class="gallery-item" data-cat="baie"><img loading="lazy" src="r30_porte_aluminium.jpg" data-i18n-alt="g30_alt" alt="Porte aluminium vitrée — ZINGUILA MULTI SERVICES"></div>
       </div>
     </div>
   </section>
@@ -514,45 +531,45 @@
   <section id="avis" class="avis">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-tag">TÉMOIGNAGES</div>
-        <h2>Ce que disent nos clients</h2>
+        <div class="section-tag" data-i18n="avis_tag">TÉMOIGNAGES</div>
+        <h2 data-i18n="avis_h2">Ce que disent nos clients</h2>
       </div>
       <div class="avis-grid">
         <div class="avis-card">
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-texte">« Équipe sérieuse et ponctuelle. Notre fondation a été réalisée dans les délais annoncés. »</p>
-          <div class="avis-nom">Nom du client</div>
+          <p class="avis-texte" data-i18n="avis1">« Équipe sérieuse et ponctuelle. Notre fondation a été réalisée dans les délais annoncés. »</p>
+          <div class="avis-nom" data-i18n="avis_client">Nom du client</div>
         </div>
         <div class="avis-card">
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-texte">« Très satisfait de la pose de nos baies vitrées, un travail propre et soigné. »</p>
-          <div class="avis-nom">Nom du client</div>
+          <p class="avis-texte" data-i18n="avis2">« Très satisfait de la pose de nos baies vitrées, un travail propre et soigné. »</p>
+          <div class="avis-nom" data-i18n="avis_client">Nom du client</div>
         </div>
         <div class="avis-card">
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-texte">« Un seul interlocuteur pour tout le chantier, ça change la vie. Je recommande. »</p>
-          <div class="avis-nom">Nom du client</div>
+          <p class="avis-texte" data-i18n="avis3">« Un seul interlocuteur pour tout le chantier, ça change la vie. Je recommande. »</p>
+          <div class="avis-nom" data-i18n="avis_client">Nom du client</div>
         </div>
       </div>
 
       <div class="avis-form-wrap">
-        <h3>Laissez-nous votre avis</h3>
+        <h3 data-i18n="avis_form_title">Laissez-nous votre avis</h3>
         <form name="avis" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="avis-form" id="avisForm">
           <input type="hidden" name="form-name" value="avis">
           <p class="hidden-field"><label>Ne pas remplir : <input name="bot-field"></label></p>
-          <input type="text" name="nom" placeholder="Votre nom" required>
+          <input type="text" name="nom" data-i18n-placeholder="avis_name_ph" placeholder="Votre nom" required>
           <select name="note" required>
-            <option value="">Votre note</option>
+            <option value="" data-i18n="avis_note_default">Votre note</option>
             <option value="5 étoiles">★★★★★</option>
             <option value="4 étoiles">★★★★</option>
             <option value="3 étoiles">★★★</option>
             <option value="2 étoiles">★★</option>
             <option value="1 étoile">★</option>
           </select>
-          <textarea name="commentaire" placeholder="Votre commentaire" required></textarea>
-          <button type="submit" class="btn btn-or">Envoyer mon avis</button>
+          <textarea name="commentaire" data-i18n-placeholder="avis_comment_ph" placeholder="Votre commentaire" required></textarea>
+          <button type="submit" class="btn btn-or" data-i18n="avis_submit">Envoyer mon avis</button>
         </form>
-        <p class="avis-confirmation" id="avisConfirmation">Merci pour votre avis ! Il a bien été envoyé.</p>
+        <p class="avis-confirmation" id="avisConfirmation" data-i18n="avis_confirm">Merci pour votre avis ! Il a bien été envoyé.</p>
       </div>
     </div>
   </section>
@@ -560,20 +577,20 @@
   <section id="contact" class="contact">
     <div class="wrap contact-grid">
       <div>
-        <div class="section-tag">CONTACT</div>
-        <h2 style="margin-bottom:26px;">Parlons de votre projet</h2>
-        <p style="color:#C7C4BA;margin-bottom:26px;">Appelez-nous ou écrivez-nous directement, nous répondons rapidement.</p>
+        <div class="section-tag" data-i18n="contact_tag">CONTACT</div>
+        <h2 style="margin-bottom:26px;" data-i18n="contact_h2">Parlons de votre projet</h2>
+        <p style="color:#C7C4BA;margin-bottom:26px;" data-i18n="contact_p">Appelez-nous ou écrivez-nous directement, nous répondons rapidement.</p>
         <div class="cta-row" style="margin-bottom:30px;">
-          <a href="tel:+242066123691" class="btn btn-or">Appeler le +242 06 612 36 91</a>
-          <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="btn btn-ghost">Écrire sur WhatsApp</a>
+          <a href="tel:+242066123691" class="btn btn-or" data-i18n="contact_call">Appeler le +242 06 612 36 91</a>
+          <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="contact_whatsapp">Écrire sur WhatsApp</a>
         </div>
         <div class="contact-info">
           <div class="contact-line">
-            <span class="k">Zone</span>
-            <span class="v">Toute la République du Congo, et au-delà</span>
+            <span class="k" data-i18n="contact_zone_k">Zone</span>
+            <span class="v" data-i18n="contact_zone_v">Toute la République du Congo, et au-delà</span>
           </div>
           <div class="contact-line">
-            <span class="k">Ingénieur</span>
+            <span class="k" data-i18n="contact_eng_k">Ingénieur</span>
             <a class="v" href="tel:+243893163476">LEMA CORNEILLE — +243 893 163 476</a>
           </div>
         </div>
@@ -690,9 +707,170 @@
       });
     });
   }
+
+  /* ===== Version bilingue FR / EN ===== */
+  var i18n = {
+    nav_services:{fr:"Services",en:"Services"},
+    nav_why:{fr:"Pourquoi nous",en:"Why us"},
+    nav_work:{fr:"Réalisations",en:"Our work"},
+    nav_contact:{fr:"Contact",en:"Contact"},
+
+    hero_eyebrow:{fr:"BÂTIMENT TOUS CORPS DE MÉTIER · RÉPUBLIQUE DU CONGO ET AU-DELÀ",en:"GENERAL CONTRACTOR · REPUBLIC OF CONGO AND BEYOND"},
+    hero_h1:{fr:"Votre projet,<br>notre expertise.",en:"Your project,<br>our expertise."},
+    hero_p:{fr:"De la fondation à la finition, une seule entreprise pour piloter tous les corps de métier de votre construction ou rénovation.",en:"From foundation to finishing touches, one company to manage every trade on your construction or renovation project."},
+    hero_cta_devis:{fr:"Demander un devis",en:"Request a quote"},
+    hero_cta_services:{fr:"Voir nos services",en:"See our services"},
+    hero_brochure:{fr:"📄 Télécharger notre brochure (PDF)",en:"📄 Download our brochure (PDF)"},
+    hero_photo_alt:{fr:"Toujours prêt pour votre projet — ZINGUILA MULTI SERVICES",en:"Always ready for your project — ZINGUILA MULTI SERVICES"},
+
+    services_tag:{fr:"NOS SERVICES",en:"OUR SERVICES"},
+    services_h2:{fr:"Un seul interlocuteur, tous les corps de métier",en:"One point of contact, every trade"},
+    services_p:{fr:"Que votre besoin soit ponctuel ou couvre l'ensemble d'un chantier, ZINGUILA MULTI SERVICES coordonne les métiers du bâtiment sous un même toit.",en:"Whether your need is a single task or covers an entire project, ZINGUILA MULTI SERVICES coordinates every building trade under one roof."},
+
+    svc1_h3:{fr:"Ingénierie &amp; Architecture",en:"Engineering &amp; Architecture"},
+    svc1_p:{fr:"Conception, plans, études et suivi de vos projets.",en:"Design, blueprints, studies and project follow-up."},
+    svc2_h3:{fr:"Soudure &amp; Ferronnerie",en:"Welding &amp; Metalwork"},
+    svc2_p:{fr:"Portails, grilles, charpentes métalliques, structures.",en:"Gates, grilles, metal framing, structural work."},
+    svc3_h3:{fr:"Menuiserie",en:"Carpentry"},
+    svc3_p:{fr:"Meubles, portes, fenêtres, placards sur mesure.",en:"Custom-made furniture, doors, windows, cabinets."},
+    svc4_h3:{fr:"Maçonnerie",en:"Masonry"},
+    svc4_p:{fr:"Murs, dalles, fondations, extensions.",en:"Walls, slabs, foundations, extensions."},
+    svc5_h3:{fr:"Charpente",en:"Roof framing"},
+    svc5_p:{fr:"Toitures, ossatures bois et métalliques.",en:"Roofing, wood and metal framing."},
+    svc6_h3:{fr:"Peinture &amp; Staff",en:"Painting &amp; Plasterwork"},
+    svc6_p:{fr:"Peinture intérieure/extérieure, décoration, staff.",en:"Interior/exterior painting, decoration, plasterwork."},
+    svc7_h3:{fr:"Électricité",en:"Electrical work"},
+    svc7_p:{fr:"Installation, dépannage, mise aux normes.",en:"Wiring, repairs, code compliance."},
+    svc8_h3:{fr:"Plomberie &amp; Carrelage",en:"Plumbing &amp; Tiling"},
+    svc8_p:{fr:"Tuyauterie, sanitaires, pose de carrelage.",en:"Piping, fixtures, tile installation."},
+    svc9_h3:{fr:"Baie vitrée &amp; Aluminium",en:"Glazing &amp; Aluminium"},
+    svc9_p:{fr:"Fenêtres, portes, vérandas, façades vitrées.",en:"Windows, doors, verandas, glass façades."},
+
+    why_tag:{fr:"POURQUOI NOUS CHOISIR",en:"WHY CHOOSE US"},
+    why_h2:{fr:"Dites-nous votre besoin, nous trouvons l'artisan",en:"Tell us what you need, we find the right hands"},
+    stat1:{fr:"corps de métier coordonnés sous une seule entreprise",en:"trades coordinated under one company"},
+    stat2:{fr:"interlocuteur unique du premier plan à la finition",en:"single point of contact from plan to finish"},
+    stat3:{fr:"projets sur mesure, adaptés à votre budget et vos délais",en:"custom projects, matched to your budget and timeline"},
+
+    work_tag:{fr:"RÉALISATIONS",en:"OUR WORK"},
+    work_h2:{fr:"Nos chantiers",en:"Our projects"},
+    work_p:{fr:"Un aperçu de nos interventions sur le terrain, tous corps de métier confondus.",en:"A look at our work on site, across every trade."},
+    ba_label:{fr:"Guérite : de la structure à la finition",en:"Guard house: from structure to finish"},
+    ba_after_alt:{fr:"Guérite avant finition",en:"Guard house before finishing"},
+    ba_before_alt:{fr:"Guérite terminée",en:"Guard house completed"},
+    ba_avant:{fr:"Avant",en:"Before"},
+    ba_apres:{fr:"Après",en:"After"},
+
+    filter_all:{fr:"Tout",en:"All"},
+    filter_ing:{fr:"Ingénierie",en:"Engineering"},
+    filter_sou:{fr:"Soudure &amp; Ferronnerie",en:"Welding &amp; Metalwork"},
+    filter_men:{fr:"Menuiserie",en:"Carpentry"},
+    filter_mac:{fr:"Maçonnerie",en:"Masonry"},
+    filter_baie:{fr:"Baie vitrée &amp; Alu",en:"Glazing &amp; Alu"},
+    filter_car:{fr:"Carrelage",en:"Tiling"},
+
+    g1_alt:{fr:"Installation de porte aluminium — ZINGUILA MULTI SERVICES",en:"Aluminium door installation — ZINGUILA MULTI SERVICES"},
+    g2_alt:{fr:"Atelier de soudure — ZINGUILA MULTI SERVICES",en:"Welding workshop — ZINGUILA MULTI SERVICES"},
+    g3_alt:{fr:"Suivi de chantier en hauteur — ZINGUILA MULTI SERVICES",en:"High-rise site supervision — ZINGUILA MULTI SERVICES"},
+    g4_alt:{fr:"Finition intérieure et rambarde vitrée — ZINGUILA MULTI SERVICES",en:"Interior finishing and glass railing — ZINGUILA MULTI SERVICES"},
+    g5_alt:{fr:"Équipe sur site — ZINGUILA MULTI SERVICES",en:"Team on site — ZINGUILA MULTI SERVICES"},
+    g6_alt:{fr:"Suivi d'ingénierie sur chantier — ZINGUILA MULTI SERVICES",en:"Engineering supervision on site — ZINGUILA MULTI SERVICES"},
+    g7_alt:{fr:"Pose de grille de sécurité — ZINGUILA MULTI SERVICES",en:"Security grille installation — ZINGUILA MULTI SERVICES"},
+    g8_alt:{fr:"Travaux de fondation — ZINGUILA MULTI SERVICES",en:"Foundation work — ZINGUILA MULTI SERVICES"},
+    g9_alt:{fr:"Mécanique et ferronnerie — ZINGUILA MULTI SERVICES",en:"Mechanics and metalwork — ZINGUILA MULTI SERVICES"},
+    g10_alt:{fr:"Atelier de mécanique générale — ZINGUILA MULTI SERVICES",en:"General mechanics workshop — ZINGUILA MULTI SERVICES"},
+    g11_alt:{fr:"Coulage de fondation — ZINGUILA MULTI SERVICES",en:"Foundation pouring — ZINGUILA MULTI SERVICES"},
+    g12_alt:{fr:"Construction de guérite — ZINGUILA MULTI SERVICES",en:"Guard house construction — ZINGUILA MULTI SERVICES"},
+    g13_alt:{fr:"Structure de guérite en finition — ZINGUILA MULTI SERVICES",en:"Guard house structure, finishing stage — ZINGUILA MULTI SERVICES"},
+    g14_alt:{fr:"Guérite peinte terminée — ZINGUILA MULTI SERVICES",en:"Completed painted guard house — ZINGUILA MULTI SERVICES"},
+    g15_alt:{fr:"Revêtement de façade — ZINGUILA MULTI SERVICES",en:"Façade cladding — ZINGUILA MULTI SERVICES"},
+    g16_alt:{fr:"Pose de baies vitrées et portes aluminium — ZINGUILA MULTI SERVICES",en:"Glass bay windows and aluminium doors — ZINGUILA MULTI SERVICES"},
+    g17_alt:{fr:"Construction de guérite — ZINGUILA MULTI SERVICES",en:"Guard house construction — ZINGUILA MULTI SERVICES"},
+    g18_alt:{fr:"Pose de grilles décoratives — ZINGUILA MULTI SERVICES",en:"Decorative grille installation — ZINGUILA MULTI SERVICES"},
+    g19_alt:{fr:"Installation de fenêtre et grille de protection — ZINGUILA MULTI SERVICES",en:"Window and protective grille installation — ZINGUILA MULTI SERVICES"},
+    g20_alt:{fr:"Fabrication d'armoire sur mesure — ZINGUILA MULTI SERVICES",en:"Custom cabinet making — ZINGUILA MULTI SERVICES"},
+    g21_alt:{fr:"Menuiserie intérieure — ZINGUILA MULTI SERVICES",en:"Interior carpentry — ZINGUILA MULTI SERVICES"},
+    g22_alt:{fr:"Cuisine aménagée — ZINGUILA MULTI SERVICES",en:"Fitted kitchen — ZINGUILA MULTI SERVICES"},
+    g23_alt:{fr:"Fabrication de meubles — ZINGUILA MULTI SERVICES",en:"Furniture making — ZINGUILA MULTI SERVICES"},
+    g24_alt:{fr:"Meuble de cuisine sur mesure — ZINGUILA MULTI SERVICES",en:"Custom kitchen cabinet — ZINGUILA MULTI SERVICES"},
+    g25_alt:{fr:"Cuisine sur mesure — ZINGUILA MULTI SERVICES",en:"Custom kitchen — ZINGUILA MULTI SERVICES"},
+    g26_alt:{fr:"Menuiserie meubles et fenêtres — ZINGUILA MULTI SERVICES",en:"Furniture and window carpentry — ZINGUILA MULTI SERVICES"},
+    g27_alt:{fr:"Garde-corps vitré — ZINGUILA MULTI SERVICES",en:"Glass railing — ZINGUILA MULTI SERVICES"},
+    g28_alt:{fr:"Baie vitrée aluminium finition — ZINGUILA MULTI SERVICES",en:"Aluminium bay window, finishing — ZINGUILA MULTI SERVICES"},
+    g29_alt:{fr:"Armoire coulissante sur mesure — ZINGUILA MULTI SERVICES",en:"Custom sliding wardrobe — ZINGUILA MULTI SERVICES"},
+    g30_alt:{fr:"Porte aluminium vitrée — ZINGUILA MULTI SERVICES",en:"Glazed aluminium door — ZINGUILA MULTI SERVICES"},
+
+    avis_tag:{fr:"TÉMOIGNAGES",en:"TESTIMONIALS"},
+    avis_h2:{fr:"Ce que disent nos clients",en:"What our clients say"},
+    avis1:{fr:"« Équipe sérieuse et ponctuelle. Notre fondation a été réalisée dans les délais annoncés. »",en:"“A serious, punctual team. Our foundation was finished within the announced timeline.”"},
+    avis2:{fr:"« Très satisfait de la pose de nos baies vitrées, un travail propre et soigné. »",en:"“Very satisfied with our bay windows — clean, careful work.”"},
+    avis3:{fr:"« Un seul interlocuteur pour tout le chantier, ça change la vie. Je recommande. »",en:"“One contact for the whole project — a real game changer. I recommend them.”"},
+    avis_client:{fr:"Nom du client",en:"Client name"},
+    avis_form_title:{fr:"Laissez-nous votre avis",en:"Leave us a review"},
+    avis_name_ph:{fr:"Votre nom",en:"Your name"},
+    avis_note_default:{fr:"Votre note",en:"Your rating"},
+    avis_comment_ph:{fr:"Votre commentaire",en:"Your comment"},
+    avis_submit:{fr:"Envoyer mon avis",en:"Submit my review"},
+    avis_confirm:{fr:"Merci pour votre avis ! Il a bien été envoyé.",en:"Thank you for your review! It has been sent."},
+
+    contact_tag:{fr:"CONTACT",en:"CONTACT"},
+    contact_h2:{fr:"Parlons de votre projet",en:"Let's talk about your project"},
+    contact_p:{fr:"Appelez-nous ou écrivez-nous directement, nous répondons rapidement.",en:"Call us or write to us directly — we respond quickly."},
+    contact_call:{fr:"Appeler le +242 06 612 36 91",en:"Call +242 06 612 36 91"},
+    contact_whatsapp:{fr:"Écrire sur WhatsApp",en:"Message on WhatsApp"},
+    contact_zone_k:{fr:"Zone",en:"Area"},
+    contact_zone_v:{fr:"Toute la République du Congo, et au-delà",en:"All of the Republic of Congo, and beyond"},
+    contact_eng_k:{fr:"Ingénieur",en:"Engineer"},
+
+    footer_slogan:{fr:"ZINGUILA MULTI SERVICES — « Votre projet, notre expertise »",en:"ZINGUILA MULTI SERVICES — “Your project, our expertise”"},
+    footer_copy:{fr:"© 2026 — Brazzaville, Congo",en:"© 2026 — Brazzaville, Congo"},
+
+    page_title:{fr:"ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier au Congo",en:"ZINGUILA MULTI SERVICES — General Contractor in Congo"},
+    meta_desc:{fr:"ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.",en:"ZINGUILA MULTI SERVICES — General contractor based in Brazzaville, working across the Republic of Congo and beyond. Engineering, welding, carpentry, masonry, framing, painting, electrical, plumbing, aluminium."},
+    og_title:{fr:"ZINGUILA MULTI SERVICES — Votre projet, notre expertise",en:"ZINGUILA MULTI SERVICES — Your project, our expertise"}
+  };
+
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    localStorage.setItem('zms_lang', lang);
+
+    document.getElementById('langBtnFr').classList.toggle('active', lang === 'fr');
+    document.getElementById('langBtnEn').classList.toggle('active', lang === 'en');
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(i18n[key]) el.textContent = i18n[key][lang];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if(i18n[key]) el.innerHTML = i18n[key][lang];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-alt');
+      if(i18n[key]) el.alt = i18n[key][lang];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if(i18n[key]) el.placeholder = i18n[key][lang];
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-aria');
+      if(i18n[key]) el.setAttribute('aria-label', i18n[key][lang]);
+    });
+
+    document.getElementById('doc-title').textContent = i18n.page_title[lang];
+    document.getElementById('meta-desc').setAttribute('content', i18n.meta_desc[lang]);
+    document.getElementById('og-title').setAttribute('content', i18n.og_title[lang]);
+    document.getElementById('og-desc').setAttribute('content', i18n.meta_desc[lang]);
+    document.getElementById('tw-title').setAttribute('content', i18n.og_title[lang]);
+    document.getElementById('tw-desc').setAttribute('content', i18n.meta_desc[lang]);
+  }
+
+  var savedLang = localStorage.getItem('zms_lang') || 'fr';
+  setLang(savedLang);
 </script>
 
-<a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Écrire sur WhatsApp">
+<a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria="contact_whatsapp" aria-label="Écrire sur WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.09-1.66-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.97-.13-.17-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.57.8 1.98.87 2.12.07.15.12.32.02.5-.1.19-.15.3-.29.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.29.76 1.24 1.62 2.01 1.12.99 2.06 1.3 2.35 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
 </a>
 
@@ -709,8 +887,8 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span>ZINGUILA MULTI SERVICES — « Votre projet, notre expertise »</span>
-    <span>© 2026 — Brazzaville, Congo</span>
+    <span data-i18n="footer_slogan">ZINGUILA MULTI SERVICES — « Votre projet, notre expertise »</span>
+    <span data-i18n="footer_copy">© 2026 — Brazzaville, Congo</span>
   </div>
 </footer>
 
