@@ -162,7 +162,7 @@
   /* Pourquoi nous */
   .pourquoi{background:var(--vert);color:var(--blanc-pur);}
   .pourquoi .section-tag{color:var(--or-clair);}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:12px;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:12px;}
   .stat b{display:block;font-family:'Archivo',sans-serif;font-size:2.1rem;font-weight:900;color:var(--or-clair);}
   .stat span{font-size:0.95rem;color:#DCE7E0;}
 
@@ -327,7 +327,7 @@
     nav ul{flex-direction:column;gap:22px;font-size:1.1rem;}
     .nav-toggle{display:block;}
     .services-grid{grid-template-columns:repeat(2,1fr);}
-    .stats{grid-template-columns:1fr;gap:22px;}
+    .stats{grid-template-columns:repeat(2,1fr);gap:22px;}
     .gallery{grid-template-columns:repeat(2,1fr);}
     .avis-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;gap:36px;}
@@ -474,6 +474,10 @@
         <h2 data-i18n="why_h2">Dites-nous votre besoin, nous trouvons l'artisan</h2>
       </div>
       <div class="stats">
+        <div class="stat">
+          <b>50+</b>
+          <span data-i18n="stat0">chantiers réalisés</span>
+        </div>
         <div class="stat">
           <b>9+</b>
           <span data-i18n="stat1">corps de métier coordonnés sous une seule entreprise</span>
@@ -838,6 +842,7 @@
 
     why_tag:{fr:"POURQUOI NOUS CHOISIR",en:"WHY CHOOSE US"},
     why_h2:{fr:"Dites-nous votre besoin, nous trouvons l'artisan",en:"Tell us what you need, we find the right hands"},
+    stat0:{fr:"chantiers réalisés",en:"projects completed"},
     stat1:{fr:"corps de métier coordonnés sous une seule entreprise",en:"trades coordinated under one company"},
     stat2:{fr:"interlocuteur unique du premier plan à la finition",en:"single point of contact from plan to finish"},
     stat3:{fr:"projets sur mesure, adaptés à votre budget et vos délais",en:"custom projects, matched to your budget and timeline"},
