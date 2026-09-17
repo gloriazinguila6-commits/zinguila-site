@@ -868,6 +868,13 @@
 
   var savedLang = localStorage.getItem('zms_lang') || 'fr';
   setLang(savedLang);
+
+  /* Enregistrement du service worker pour le mode hors-ligne */
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
 </script>
 
 <a href="https://wa.me/242066123691" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria="contact_whatsapp" aria-label="Écrire sur WhatsApp">
