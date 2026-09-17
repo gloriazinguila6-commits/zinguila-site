@@ -6,6 +6,8 @@
 <title>ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier au Congo</title>
 <meta name="keywords" content="bâtiment Congo, entreprise construction Brazzaville, ingénierie architecture Congo, soudure ferronnerie Brazzaville, menuiserie Congo, maçonnerie Brazzaville, plomberie carrelage Congo, baie vitrée aluminium Brazzaville, électricité bâtiment Congo, Zinguila Multi Services">
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#15140F">
 <meta name="description" content="ZINGUILA MULTI SERVICES — Bâtiment tous corps de métier basé à Brazzaville, intervenant dans toute la République du Congo et au-delà. Ingénierie, soudure, menuiserie, maçonnerie, charpente, peinture, électricité, plomberie, aluminium.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZINGUILA MULTI SERVICES — Votre projet, notre expertise">
@@ -96,6 +98,11 @@
   .btn-or:hover{background:var(--or-clair);}
   .btn-ghost{border-color:rgba(247,245,240,0.35);color:var(--blanc-pur);}
   .btn-ghost:hover{border-color:var(--or-clair);color:var(--or-clair);}
+  .brochure-link{
+    display:inline-block;margin-top:16px;font-size:0.9rem;color:var(--or-clair);
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  .brochure-link:hover{color:var(--blanc-pur);}
 
   .blueprint{width:100%;height:auto;}
   .blueprint line, .blueprint path, .blueprint circle{
@@ -164,6 +171,30 @@
   .avis-confirmation.show{display:block;}
 
   /* Réalisations / galerie */
+  .ba-wrap{margin-bottom:36px;}
+  .ba-label{font-weight:700;font-size:0.95rem;margin-bottom:12px;}
+  .ba-slider{
+    position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;
+    border:1px solid var(--ligne);cursor:ew-resize;user-select:none;
+  }
+  .ba-slider img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ba-after{position:absolute;top:0;left:0;}
+  .ba-before-wrap{
+    position:absolute;top:0;left:0;height:100%;width:50%;overflow:hidden;
+  }
+  .ba-before{position:absolute;top:0;left:0;height:100%;max-width:none;}
+  .ba-handle{
+    position:absolute;top:0;left:50%;height:100%;width:4px;
+    background:var(--or);transform:translateX(-50%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ba-arrows{
+    background:var(--or);color:var(--noir);width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:700;
+    box-shadow:0 2px 8px rgba(0,0,0,0.3);
+  }
+  .ba-tags{display:flex;justify-content:space-between;margin-top:8px;font-size:0.8rem;color:var(--gris);font-weight:600;}
+
   .filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
   .filter-btn{
     padding:9px 18px;font-size:0.85rem;font-weight:600;
@@ -295,6 +326,7 @@
   "slogan": "Votre projet, notre expertise"
 }
 </script>
+<script defer data-domain="zinguilamultiservices.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -325,6 +357,7 @@
           <a href="#contact" class="btn btn-or">Demander un devis</a>
           <a href="#services" class="btn btn-ghost">Voir nos services</a>
         </div>
+        <a href="brochure_zinguila.pdf" download class="brochure-link">📄 Télécharger notre brochure (PDF)</a>
       </div>
       <div class="blueprint-wrap">
         <img src="hero_prets3.jpg" alt="Toujours prêt pour votre projet — ZINGUILA MULTI SERVICES" class="hero-photo">
@@ -419,6 +452,21 @@
         <h2>Nos chantiers</h2>
         <p>Un aperçu de nos interventions sur le terrain, tous corps de métier confondus.</p>
       </div>
+
+      <div class="ba-wrap">
+        <div class="ba-label">Guérite : de la structure à la finition</div>
+        <div class="ba-slider" id="baSlider">
+          <img src="r12_guerite_construction.jpg" alt="Guérite avant finition" class="ba-after">
+          <div class="ba-before-wrap" id="baBeforeWrap">
+            <img src="r14_guerite_terminee.jpg" alt="Guérite terminée" class="ba-before">
+          </div>
+          <div class="ba-handle" id="baHandle">
+            <span class="ba-arrows">↔</span>
+          </div>
+        </div>
+        <div class="ba-tags"><span>Avant</span><span>Après</span></div>
+      </div>
+
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">Tout</button>
         <button class="filter-btn" data-filter="ingenierie">Ingénierie</button>
@@ -574,6 +622,46 @@
     if(e) e.stopPropagation();
     document.getElementById('lightbox').classList.remove('open');
   }
+
+  (function(){
+    var slider = document.getElementById('baSlider');
+    var beforeWrap = document.getElementById('baBeforeWrap');
+    var beforeImg = beforeWrap.querySelector('.ba-before');
+    var handle = document.getElementById('baHandle');
+    if(!slider) return;
+
+    function syncBeforeImgWidth(){
+      beforeImg.style.width = slider.offsetWidth + 'px';
+    }
+    syncBeforeImgWidth();
+    window.addEventListener('resize', syncBeforeImgWidth);
+
+    function setPosition(percent){
+      percent = Math.max(0, Math.min(100, percent));
+      beforeWrap.style.width = percent + '%';
+      handle.style.left = percent + '%';
+    }
+
+    function handleMove(clientX){
+      var rect = slider.getBoundingClientRect();
+      var percent = ((clientX - rect.left) / rect.width) * 100;
+      setPosition(percent);
+    }
+
+    var dragging = false;
+    slider.addEventListener('mousedown', function(){ dragging = true; });
+    window.addEventListener('mouseup', function(){ dragging = false; });
+    window.addEventListener('mousemove', function(e){
+      if(dragging) handleMove(e.clientX);
+    });
+    slider.addEventListener('click', function(e){ handleMove(e.clientX); });
+
+    slider.addEventListener('touchstart', function(e){ dragging = true; }, {passive:true});
+    window.addEventListener('touchend', function(){ dragging = false; });
+    slider.addEventListener('touchmove', function(e){
+      if(e.touches && e.touches[0]) handleMove(e.touches[0].clientX);
+    }, {passive:true});
+  })();
 
   var backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', function(){
