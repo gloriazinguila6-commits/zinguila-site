@@ -254,7 +254,19 @@
 
   /* Contact */
   .contact{background:var(--noir);color:var(--blanc-pur);}
-  .contact-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;max-width:560px;margin:0 auto;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;max-width:920px;margin:0 auto;}
+  .devis-form-wrap h3{font-size:1.15rem;font-weight:700;margin-bottom:18px;}
+  .devis-form{display:grid;gap:14px;}
+  .devis-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .devis-form select{
+    background:#211F17;border:1px solid rgba(247,245,240,0.18);
+    color:var(--blanc-pur);padding:13px 14px;font-family:inherit;font-size:0.95rem;
+  }
+  .devis-confirmation{display:none;color:var(--or-clair);font-weight:600;margin-top:16px;}
+  .devis-confirmation.show{display:block;}
+  @media (max-width:520px){
+    .devis-form .row2{grid-template-columns:1fr;}
+  }
   .contact .section-tag{color:var(--or-clair);}
   .contact-info a{display:block;}
   .contact-line{
@@ -611,6 +623,49 @@
           </div>
         </div>
       </div>
+
+      <div class="devis-form-wrap">
+        <h3 data-i18n="devis_title">Demander un devis</h3>
+        <form name="devis" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="devis-form" id="devisForm">
+          <input type="hidden" name="form-name" value="devis">
+          <p class="hidden-field"><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <input type="text" name="nom" data-i18n-placeholder="devis_name_ph" placeholder="Votre nom" required>
+          <input type="tel" name="telephone" data-i18n-placeholder="devis_phone_ph" placeholder="Votre téléphone" required>
+          <select name="type_projet" required>
+            <option value="" data-i18n="devis_type_default">Type de projet</option>
+            <option value="Ingénierie / Architecture" data-i18n="svc1_h3">Ingénierie &amp; Architecture</option>
+            <option value="Soudure / Ferronnerie" data-i18n="svc2_h3">Soudure &amp; Ferronnerie</option>
+            <option value="Menuiserie" data-i18n="svc3_h3">Menuiserie</option>
+            <option value="Maçonnerie" data-i18n="svc4_h3">Maçonnerie</option>
+            <option value="Charpente" data-i18n="svc5_h3">Charpente</option>
+            <option value="Peinture / Staff" data-i18n="svc6_h3">Peinture &amp; Staff</option>
+            <option value="Électricité" data-i18n="svc7_h3">Électricité</option>
+            <option value="Plomberie / Carrelage" data-i18n="svc8_h3">Plomberie &amp; Carrelage</option>
+            <option value="Baie vitrée / Aluminium" data-i18n="svc9_h3">Baie vitrée &amp; Aluminium</option>
+            <option value="Autre / plusieurs corps de métier" data-i18n="devis_type_autre">Autre / plusieurs corps de métier</option>
+          </select>
+          <div class="row2">
+            <select name="budget" required>
+              <option value="" data-i18n="devis_budget_default">Budget estimé</option>
+              <option value="Moins de 500 000 FCFA" data-i18n="devis_budget1">Moins de 500 000 FCFA</option>
+              <option value="500 000 – 2 000 000 FCFA" data-i18n="devis_budget2">500 000 – 2 000 000 FCFA</option>
+              <option value="2 000 000 – 5 000 000 FCFA" data-i18n="devis_budget3">2 000 000 – 5 000 000 FCFA</option>
+              <option value="Plus de 5 000 000 FCFA" data-i18n="devis_budget4">Plus de 5 000 000 FCFA</option>
+              <option value="Je ne sais pas encore" data-i18n="devis_budget5">Je ne sais pas encore</option>
+            </select>
+            <select name="delai" required>
+              <option value="" data-i18n="devis_delai_default">Délai souhaité</option>
+              <option value="Urgent (moins de 2 semaines)" data-i18n="devis_delai1">Urgent (moins de 2 semaines)</option>
+              <option value="Dans le mois" data-i18n="devis_delai2">Dans le mois</option>
+              <option value="Dans les 3 mois" data-i18n="devis_delai3">Dans les 3 mois</option>
+              <option value="Pas encore fixé" data-i18n="devis_delai4">Pas encore fixé</option>
+            </select>
+          </div>
+          <textarea name="description" data-i18n-placeholder="devis_desc_ph" placeholder="Décrivez brièvement votre projet"></textarea>
+          <button type="submit" class="btn btn-or" data-i18n="devis_submit">Envoyer ma demande</button>
+        </form>
+        <p class="devis-confirmation" id="devisConfirmation" data-i18n="devis_confirm">Merci ! Votre demande a bien été envoyée, nous vous répondons rapidement.</p>
+      </div>
     </div>
   </section>
 
@@ -718,6 +773,25 @@
         avisForm.reset();
         avisForm.style.display = 'none';
         document.getElementById('avisConfirmation').classList.add('show');
+      }).catch(function(){
+        alert("Une erreur s'est produite, réessayez.");
+      });
+    });
+  }
+
+  var devisForm = document.getElementById('devisForm');
+  if(devisForm){
+    devisForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(devisForm);
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(data).toString()
+      }).then(function(){
+        devisForm.reset();
+        devisForm.style.display = 'none';
+        document.getElementById('devisConfirmation').classList.add('show');
       }).catch(function(){
         alert("Une erreur s'est produite, réessayez.");
       });
@@ -838,6 +912,26 @@
     contact_zone_v:{fr:"Toute la République du Congo, et au-delà",en:"All of the Republic of Congo, and beyond"},
     contact_eng_k:{fr:"Ingénieur",en:"Engineer"},
 
+    devis_title:{fr:"Demander un devis",en:"Request a quote"},
+    devis_name_ph:{fr:"Votre nom",en:"Your name"},
+    devis_phone_ph:{fr:"Votre téléphone",en:"Your phone number"},
+    devis_type_default:{fr:"Type de projet",en:"Project type"},
+    devis_type_autre:{fr:"Autre / plusieurs corps de métier",en:"Other / multiple trades"},
+    devis_budget_default:{fr:"Budget estimé",en:"Estimated budget"},
+    devis_budget1:{fr:"Moins de 500 000 FCFA",en:"Under 500,000 FCFA"},
+    devis_budget2:{fr:"500 000 – 2 000 000 FCFA",en:"500,000 – 2,000,000 FCFA"},
+    devis_budget3:{fr:"2 000 000 – 5 000 000 FCFA",en:"2,000,000 – 5,000,000 FCFA"},
+    devis_budget4:{fr:"Plus de 5 000 000 FCFA",en:"Over 5,000,000 FCFA"},
+    devis_budget5:{fr:"Je ne sais pas encore",en:"Not sure yet"},
+    devis_delai_default:{fr:"Délai souhaité",en:"Desired timeline"},
+    devis_delai1:{fr:"Urgent (moins de 2 semaines)",en:"Urgent (less than 2 weeks)"},
+    devis_delai2:{fr:"Dans le mois",en:"Within a month"},
+    devis_delai3:{fr:"Dans les 3 mois",en:"Within 3 months"},
+    devis_delai4:{fr:"Pas encore fixé",en:"Not yet decided"},
+    devis_desc_ph:{fr:"Décrivez brièvement votre projet",en:"Briefly describe your project"},
+    devis_submit:{fr:"Envoyer ma demande",en:"Send my request"},
+    devis_confirm:{fr:"Merci ! Votre demande a bien été envoyée, nous vous répondons rapidement.",en:"Thank you! Your request has been sent — we'll get back to you quickly."},
+
     footer_slogan:{fr:"ZINGUILA MULTI SERVICES — « Votre projet, notre expertise »",en:"ZINGUILA MULTI SERVICES — “Your project, our expertise”"},
     footer_copy:{fr:"© 2026 — Brazzaville, Congo",en:"© 2026 — Brazzaville, Congo"},
 
@@ -921,6 +1015,16 @@
   <input type="text" name="nom">
   <select name="note"><option value="5 étoiles">5</option></select>
   <textarea name="commentaire"></textarea>
+  <input name="bot-field">
+</form>
+
+<form name="devis" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nom">
+  <input type="tel" name="telephone">
+  <select name="type_projet"><option value="Autre">Autre</option></select>
+  <select name="budget"><option value="Je ne sais pas encore">Je ne sais pas encore</option></select>
+  <select name="delai"><option value="Pas encore fixé">Pas encore fixé</option></select>
+  <textarea name="description"></textarea>
   <input name="bot-field">
 </form>
 
